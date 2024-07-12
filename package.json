@@ -1,0 +1,41 @@
+{
+  "name": "webauthn-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.351.0",
+    "@aws-sdk/lib-dynamodb": "^3.351.0",
+    "@simplewebauthn/server": "10.0.0",
+    "@typedorm/common": "^1.15.4",
+    "@typedorm/core": "^1.15.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv-flow": "^4.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
+    "memorystore": "^1.6.7",
+    "node-fetch": "^2.6.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.5",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.11.20",
+    "@types/node-fetch": "^2.5.12",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
