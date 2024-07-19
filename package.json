@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start-prod": "NODE_ENV=production && npm run build && pm2 start --env production"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.351.0",
@@ -21,6 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "memorystore": "^1.6.7",
     "node-fetch": "^2.6.0",
+    "pm2": "^5.4.2",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {

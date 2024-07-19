@@ -20,7 +20,6 @@ export const createUserJWT = async (userData: User) => {
   const {
     sub,
     email_verified,
-    iss,
     "cognito:username": cognitoUsername,
     origin_jti,
     "custom:roleName": roleName,
@@ -30,14 +29,13 @@ export const createUserJWT = async (userData: User) => {
     auth_time,
     name,
     "custom:vendorType": vendorType,
-    exp,
     iat,
     jti,
     email,
   } = JSON.parse(userData.claims);
 
   const newExp = Date.now() + 3600 * 1000; // Set new expiry date to 1 hour from now
-  const newIss = "https://new-issuer.com";
+  const newIss = "http://ec2-3-88-47-79.compute-1.amazonaws.com:8080";
 
   const newToken = {
     sub,

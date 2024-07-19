@@ -45,5 +45,5 @@ export const config: IConfig = {
   // This value is set at the bottom of page as part of server initialization (the empty string is
   // to appease TypeScript until we determine the expected origin based on whether or not HTTPS
   // support is enabled)
-  expectedOrigin: [`http://localhost:8000`, `http://localhost:3000`],
+  expectedOrigin: [`http://localhost:8000`, process.env.BASE_URL as string],
 };
