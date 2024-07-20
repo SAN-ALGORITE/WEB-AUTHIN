@@ -16,8 +16,11 @@ import {
   RegistrationResponseJSON,
 } from "@simplewebauthn/types";
 
-import { expectedOrigin, rpID } from "../index";
+import { config } from "./config/index";
 import { LoggedInUser } from "./types/global.types";
+
+const { expectedOrigin } = config;
+const rpId = process.env.RP_ID || "localhost";
 
 interface LoggedInFIDOUser extends LoggedInUser {
   currentAuthenticationUserVerification?: UserVerificationRequirement;
@@ -135,7 +138,7 @@ fidoConformanceRouter.post("/attestation/options", async (req, res) => {
 
   const opts = await generateRegistrationOptions({
     rpName,
-    rpID,
+    rpID: rpId,
     userID: username,
     userName: username,
     userDisplayName: displayName,
@@ -228,7 +231,7 @@ fidoConformanceRouter.post("/assertion/options", async (req, res) => {
   const { devices } = user;
 
   const opts = await generateAuthenticationOptions({
-    rpID,
+    rpID: rpId,
     extensions,
     userVerification,
     allowCredentials: devices.map((dev) => ({
@@ -280,7 +283,7 @@ fidoConformanceRouter.post("/assertion/result", async (req, res) => {
       response: body,
       expectedChallenge: `${expectedChallenge}`,
       expectedOrigin,
-      expectedRPID: rpID,
+      expectedRPID: rpId,
       authenticator: existingDevice,
       advancedFIDOConfig: { userVerification },
       requireUserVerification: false,
