@@ -10,19 +10,19 @@ const { ENABLE_HTTPS, RP_ID } = config;
 let expectedOrigin: string[];
 
 if (ENABLE_HTTPS) {
-  const host = "0.0.0.0";
-  const port = 443;
-  expectedOrigin = [`https://${RP_ID}`];
+  const port = 8000;
+  const host = "127.0.0.1";
+  expectedOrigin = [`http://localhost:${port}`, process.env.BASE_URL as string];
 
   https
     .createServer(
       {
-        key: fs.readFileSync(`./${RP_ID}.key`),
-        cert: fs.readFileSync(`./${RP_ID}.crt`),
+        key: fs.readFileSync("/home/ubuntu/CERT/nginx-selfsigned.key"),
+        cert: fs.readFileSync("/home/ubuntu/CERT/nginx-selfsigned.crt"),
       },
       app
     )
-    .listen(port, host, () => {
+    .listen(port, () => {
       console.log(`🚀 Server ready at ${expectedOrigin} (${host}:${port})`);
     });
 } else {

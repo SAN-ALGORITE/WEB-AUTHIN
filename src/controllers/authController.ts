@@ -96,6 +96,7 @@ export const generateAuthRegistrationOptions = async (
      */
     req.session.currentChallenge = options.challenge;
     req.session.userId = id;
+    console.log("Session on reg:", req.session.id);
     res.send(options);
   } catch (err) {
     console.log(err);
@@ -106,6 +107,7 @@ export const generateAuthRegistrationOptions = async (
 export const verifyRegistration = async (req: Request, res: Response) => {
   const { body } = req;
   const userId = req.session.userId;
+  console.log("Session on ver:", req.session.id);
   if (!userId) {
     return res.status(400).send({
       error: "User not found",

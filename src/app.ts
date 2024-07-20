@@ -29,6 +29,7 @@ app.use(express.static(__dirname + "/public/"));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({ origin: true, credentials: true }));
+app.enable("trust proxy");
 app.use(sessionMiddleware(session, MemoryStore, config));
 
 /**
