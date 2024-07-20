@@ -30,6 +30,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({ origin: true, credentials: true }));
 app.enable("trust proxy");
+app.set('trust proxy', 1);
 app.use(sessionMiddleware(session, MemoryStore, config));
 
 /**

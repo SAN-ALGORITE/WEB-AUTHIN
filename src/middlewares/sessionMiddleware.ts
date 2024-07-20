@@ -11,10 +11,11 @@ export const sessionMiddleware = (
     secret: config.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
+    proxy: true,
     // proxy: true,
     cookie: {
       maxAge: 86400000,
-      secure: false,
+      secure: true,
       // sameSite: true,
       sameSite: "none",
       httpOnly: true, // Ensure to not expose session cookies to clientside scripts
