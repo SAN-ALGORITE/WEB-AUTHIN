@@ -9,7 +9,7 @@ export const sessionMiddleware = (
 ): RequestHandler => {
   return authSession({
     secret: config.SESSION_SECRET,
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: false,
     // proxy: true,
     cookie: {
