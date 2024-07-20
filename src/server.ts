@@ -12,7 +12,11 @@ let expectedOrigin: string[];
 if (ENABLE_HTTPS) {
   const port = 8000;
   const host = "127.0.0.1";
-  expectedOrigin = [`http://localhost:${port}`, process.env.BASE_URL as string];
+  expectedOrigin = [
+    `http://localhost:${port}`,
+    `http://localhost:3000`,
+    process.env.BASE_URL as string,
+  ];
 
   https
     .createServer(
