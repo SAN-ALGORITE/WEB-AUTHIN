@@ -48,6 +48,7 @@ export const config: IConfig = {
   expectedOrigin: [
     `http://localhost:8000`,
     `http://localhost:3000`,
+    "https://www.crewtransit.com",
     process.env.BASE_URL as string,
   ],
 };
