@@ -15,6 +15,7 @@ if (ENABLE_HTTPS) {
   expectedOrigin = [
     `http://localhost:${port}`,
     `http://localhost:3000`,
+    `https://www.crewtransit.com`,
     process.env.BASE_URL as string,
   ];
 
