@@ -21,8 +21,8 @@ if (ENABLE_HTTPS) {
   https
     .createServer(
       {
-        key: fs.readFileSync("/home/ubuntu/CERT/nginx-selfsigned.key"),
-        cert: fs.readFileSync("/home/ubuntu/CERT/nginx-selfsigned.crt"),
+        key: fs.readFileSync("/home/ubuntu/CERT/privkey.pem"),
+        cert: fs.readFileSync("/home/ubuntu/CERT/fullchain.pem"),
       },
       app
     )
